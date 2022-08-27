@@ -1,0 +1,79 @@
+.signinscreen {
+    width: 22rem;
+    max-width: 22rem;
+    padding: 1rem;
+    height: 25rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    margin: auto;
+    align-items: center;
+    align-content: center;
+}
+.signinform {
+    display: grid;
+    flex-direction: column;
+    padding: 2rem 0rem;
+    justify-content: center;
+    justify-items: start;
+     
+}
+
+.email-holder {
+    height: 2.8rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    /* left: 2rem; */
+   margin: 1rem 0rem;
+   padding-left: 1rem;
+    width: 16rem;
+    border-radius: 4px;
+    background-color: #2d2d2d;
+    /* z-index: 1; */
+    color: #ffffff;
+}
+
+.password-holder {
+    height: 2.8rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    /* left: 2rem; */
+   margin: 0rem 0rem;
+   padding-left: 1rem;
+    width: 16rem;
+    border-radius: 4px;
+    background-color: #2d2d2d;
+    /* z-index: 1; */
+    color: #ffffff;
+}
+.sign-in{
+padding: 1rem 0rem;
+font-size: 1.6rem;
+font-weight: 600;
+}
+.loginscreen-button {
+    padding: 1rem 1.6rem;
+    font-size: 1rem;
+    /* font-weight: 500; */
+    border-radius: 4px;
+   border: none;
+    cursor: pointer;
+    background-color: #e50914;
+    margin: 2rem 0rem;
+    width: 17rem;
+    font-weight: 600;
+}
+
+.register {
+    cursor: pointer;
+    color: #e5e5e5;
+}
+.register:hover {
+    color: #ffffff;
+}
+
+.error {
+    font-size: .8rem;
+    color: #e87c03;
+}

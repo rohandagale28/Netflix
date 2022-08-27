@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
-import videobg from "./assets/back3.mp4";
+import videobg from "./assets/back5.mp4";
 import "./banner.css";
 import { FaPlay } from "react-icons/fa";
 import axios from "./Axios";
 import requests from "./Requests";
 
+
 const Banner = () => {
   const [movie, setMovie] = useState([]);
-
+  // useEffect(() => {
+  //   const logoutapp = () => {
+  //     const dispatch = useDispatch();
+  //   };
+  // }, [dispatch]);
+  
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
+      const request = await axios.get(requests.fetchRomanticmoive);
       // const request2 = await axios.get(requests.fetchMovie);
       // const request = request1.concat(request2)
       // const request = {
@@ -31,11 +37,11 @@ const Banner = () => {
     <div className="main">
       <div className="overlay"></div>
       <div className="overlaytop"></div>
-      <video className="video" src={videobg} autoPlay loop muted/>
-      {/* <img
+      {/* <video className="video" src={videobg} autoPlay loop muted/> */}
+      <img
         className="video"
         src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-      ></img> */}
+      ></img>
       <div className="content">
         <div className="left-content">
           <div className="movie-name">
@@ -69,6 +75,7 @@ const Banner = () => {
           </div> */}
         </div>
       </div>
+      {/* <button onClick={logoutapp}>logout</button> */}
     </div>
   );
 };

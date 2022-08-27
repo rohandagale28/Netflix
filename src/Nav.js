@@ -1,13 +1,26 @@
 import "./Nav.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import netflix from "../src/netflix.png";
 import search from "../src/search3.png";
 import { FaSearch } from "react-icons/fa";
 
 function Nav() {
+  const [show, handleShow] = useState(false);
+  const transitionNavbar = () => {
+    if (window.scrollY > 200) {
+      handleShow(true);
+    } else {
+      handleShow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", transitionNavbar);
+    return () => window.removeEventListener("scroll", transitionNavbar);
+  }, []);
   return (
     <div className="nav">
-      <div className="nav-content">
+      <div className={`nav-content ${show && "nav-black"}`}>
         <div className="nav-left">
           <div className="nav-left-logo">
             <a href="#">
@@ -15,7 +28,7 @@ function Nav() {
                 className="nav-left-logo-align"
                 src={netflix}
                 height={"62px"}
-                width={"120px"}
+                // width={"120px"}
               />
             </a>
           </div>

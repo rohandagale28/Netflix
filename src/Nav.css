@@ -7,20 +7,26 @@
     top: 0;
     left: 0;
     width: 100%;
-    bottom: 0;
+    /* bottom: 0; */
     
-    z-index: 1;
+    z-index:2;
+}
+
+.nav-black {
+    background-color: #000000;
 }
 
 .nav-content {
     display: flex;
-    position: fixed; 
+    position: relative; 
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    transition-timing-function: ease-in;
+    transition: all .5s;
     /* max-height: 4rem; */
-    background: transparent;
+    /* background: transparent; */
     /* overflow: hidden; */
     /* height: 68px; */
     /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), 60%, transparent); */
@@ -79,6 +85,12 @@ justify-content: space-evenly;
 
 
 }
+/* .nav-left-logo {
+    height: 100%;
+    /* position: relative; */
+    /* min-height: 60px;
+    min-width: 120px; */
+    /* width: 100%; */
 
 .left-search-button {
     padding-right: 2rem;

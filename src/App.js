@@ -1,40 +1,44 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
-import Banner from "./Banner";
-import Nav from "./Nav";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomeScreen from "./Sreens/HomeScreen";
+import LoginScreen from "./Sreens/LoginScreen";
+import { auth } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
+import { getAuth, signOut } from "firebase/auth";
 
 function App() {
-  // const [myData, setmyData] = useState([]);
-  // const [myError, setmyError] = useState("");
-  // useEffect(() => {
-  //   axios
-  //     .get("https://api.github.com/users")
-  //     .then((res) => setmyData(res.data))
-  //     .catch((error) => setmyError(error.message));
-  // }, []);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        console.log(userAuth);
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+      } else {
+        dispatch(logout);
+      }
+    });
+    return unsubscribe;
+  }, [dispatch]);
   return (
-    <>
-      <Nav />
-      <Banner />
-      {/* <div className="scroll" style={{
-        backgroundColor: "#ffffff"
-      }}>
-        <div>axios tutorial</div>
-        {myError != "" && <h1>{myError}</h1>}
-
-        {myData.map((post) => {
-          const { id, url, type } = post;
-          return (
-            <div className={id}>
-              <h1>{id}</h1>
-              <h1>{url}</h1>
-              <h1>{type}</h1>
-            </div>
-          );
-        })}
-      </div> */}
-    </>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          {!user ? (
+            <Route exact path="/loginscreen" element={<LoginScreen />} />
+          ) : (
+            <Route exact path="/" element={<HomeScreen />} />
+          )}
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
