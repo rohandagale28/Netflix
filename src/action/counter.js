@@ -5,8 +5,8 @@ export default (state = initialState, { type, payload }) => {
 
   case Login = (state, action) => {
          state.user = action.payload,
-  }
+  };
     
 
 }
-}
+};

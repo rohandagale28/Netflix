@@ -5,9 +5,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+// import { Link } from "react-router-dom";
 
 const Signinscreen = () => {
   const [error, setError] = useState([]);
+  const [exist, setExist] = useState([]);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -20,11 +22,13 @@ const Signinscreen = () => {
 
         passwordRef.current.value
       );
+      setExist(null);
       console.log(user);
     } catch (error) {
-      alert("the user alreasy exitst");
+      setExist("User already exist");
     }
   };
+
   const login = async (e) => {
     e.preventDefault();
     try {
@@ -52,6 +56,7 @@ const Signinscreen = () => {
           placeholder="Email"
           type="email"
         />
+        <span>{exist}</span>
 
         <input
           ref={passwordRef}
@@ -63,6 +68,7 @@ const Signinscreen = () => {
         <button onClick={login} className="loginscreen-button" type="submit">
           Sign In
         </button>
+
         <div>
           <span className="register" onClick={register}>
             register

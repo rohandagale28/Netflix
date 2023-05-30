@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import Banner from "../Banner";
 import Nav from "../Nav";
 import Row from "../Row";
 import requests from "../Requests";
+import { auth } from "../firebase";
 // import { getAuth, signOut } from "firebase/auth";
 // import { auth } from "../firebase";
+// import { Link } from "react-router-dom";
 const HomeScreen = () => {
   // useEffect(() => {
   //   const unsubscribe = auth.getAuth();
@@ -26,7 +28,9 @@ const HomeScreen = () => {
       <Row title="Horror" fetchUrl={requests.fetchRomanticmoive} />
       <Row title="Recommendation" fetchUrl={requests.fetchNetflixOriginals} />
       <Row title="Anime" fetchUrl={requests.fetchHorror} />
-      {/* <button onClick={unsubscribe}>logout</button> */}
+      {/* <Link to="/login"> */}
+      <button onClick={() => auth.signOut()}>logout</button>
+      {/* </Link> */}
     </div>
   );
 };

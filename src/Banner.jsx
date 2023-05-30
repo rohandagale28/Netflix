@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import videobg from "./assets/back5.mp4";
+import videobg from "./assets/back4.mp4";
 import "./banner.css";
 import { FaPlay } from "react-icons/fa";
 import axios from "./Axios";
@@ -13,7 +13,7 @@ const Banner = () => {
   //     const dispatch = useDispatch();
   //   };
   // }, [dispatch]);
-  
+
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchRomanticmoive);
@@ -25,7 +25,7 @@ const Banner = () => {
       // };
       setMovie(
         request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
+        Math.floor(Math.random() * request.data.results.length - 1)
         ]
       );
     }
@@ -37,11 +37,11 @@ const Banner = () => {
     <div className="main">
       <div className="overlay"></div>
       <div className="overlaytop"></div>
-      {/* <video className="video" src={videobg} autoPlay loop muted/> */}
-      <img
-        className="video"
-        src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-      ></img>
+      <video className="video" src={videobg} autoPlay loop muted />
+        {/* <img
+          className="video"
+          src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
+        ></img> */}
       <div className="content">
         <div className="left-content">
           <div className="movie-name">

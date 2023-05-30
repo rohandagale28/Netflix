@@ -4,7 +4,6 @@ import netflix from "../netflix.png";
 import Signinscreen from "./Signinscreen";
 
 const LoginScreen = () => {
-  //
   const [signin, setSignin] = useState(false);
   return (
     <div className="loginscreen">
